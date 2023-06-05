@@ -17,7 +17,7 @@ def japanese():
     NController()
 
 # Erstelle ein Label
-label = Label(fenster, text="Press Space",font=("Arial",48))
+label = Label(fenster, text="SELECT LANGUAGE",font=("Arial",48))
 label.pack()
 
 # Erstelle ein Entry-Feld
