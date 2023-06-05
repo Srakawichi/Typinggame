@@ -137,17 +137,20 @@ class Model:
     
     def word_checker(self, word):
         list.append(word)
-        if word in self.word_list:
+        print(len(list))
+        if word in self.word_list and len(list) != 10:
             return "Richtig"
-        else:
+        elif len(list) != 10:
             return "Falsch"
+        else:
+            return "Geschafft"
         
-    def word_counter(self):
-        if len(list) <= 10:
-            return len(list)
+#     def word_counter(self):
+#         if len(list) == 10:
+#             print(len(list))
         
         
-class Controller:
+class GController:
     def __init__(self):
         self.model = Model()
         self.view = View(self.callbackKommando)
@@ -155,7 +158,7 @@ class Controller:
         self.view.fenster.mainloop()
         
     def callbackKommando(self):
-        self.model.word_counter()
+        #self.model.word_counter()
         randomword = self.model.randomword()
         self.view.label.config(text = randomword)
         word = self.view.entry.get()
@@ -166,12 +169,16 @@ class Controller:
         
         if result == "Richtig":
             self.view.result_label.config(fg="green")
+        elif result == "Falsch":
+            self.view.result_label.config(fg="red")
         else:
-            self.view.result_label.config(fg="red")      
+            self.view.label .config(text="Fertig")
+            self.view.result_label.config(fg="black")
+            self.view.entry.config(state="disabled")
     
               
 if __name__ == "__main__":
-    Controller()
+    GController()
     
         
         
