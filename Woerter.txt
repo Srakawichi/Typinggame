@@ -1,0 +1,35 @@
+Schlange
+Melone 
+Apfel
+Ananas
+Esel
+Gurke 
+Maus 
+Gelbbauchzeisig
+
+
+import random
+
+def check_word_in_file(word, file_name):
+    with open(file_name, 'r') as file:
+        words = file.read().split()
+        if word in words:
+            print("Richtig")
+        else:
+            print("Nicht vorhanden")
+
+def get_random_word(file_name):
+    with open(file_name, 'r') as file:
+        words = file.read().split()
+        random_word = random.choice(words)
+        return random_word
+
+# Beispielaufruf
+user_input = input("Bitte geben Sie ein Wort ein: ")
+file_name = "Woerter.txt"
+
+check_word_in_file(user_input, file_name)
+
+for i in range(20):
+    random_word = get_random_word(file_name)
+    print(random_word)
